@@ -3,3 +3,5 @@
 /workspace.xml
 /data
 /debug
+/__pycache__
+/.idea
