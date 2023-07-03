@@ -1,3 +1,4 @@
+import joblib
 import numpy as np
 import pandas as pd
 from utlis.config import dtype
@@ -30,7 +31,6 @@ def harmonize_data(df):
 
 
 # 输入df， 列名，将其转为float和str
-
 def Ob2Float(df, col_name):
 
     str_feature = ["Flow ID", " Source IP", " Destination IP", " Timestamp", " Label"]
@@ -42,6 +42,37 @@ def Ob2Float(df, col_name):
     df[col_name_l] = df[col_name_l].astype(float)
 
     return df
+
+
+# --------------------------------------保存模型，可以直接调用，目前不是很需要
+def save_model(model, model_path):
+    joblib.dump(model, model_path)
+
+
+def load_model(model_path):
+    model = joblib.load(model_path)
+    return model
+
+
+# 分离加密流量和未加密流量
+def data_split():
+    csv_folder_path = './data/'
+    csv_file_path = glob.glob(os.path.join(csv_folder_path, "*.csv"))
+
+    out_folder_443 = './data_split/ciphertext'
+    out_folder = './data_split/message'
+
+    # file[7:-14]是为了删掉data/和后面的.pcap_ISCX.csv，看来后续还得修改，才能更完善
+    # 主要是前面那个7，要对应路径名的长度
+    for file in csv_file_path:
+        print(file)
+        df = pd.read_csv(file)
+        # 源端口或者目的端口是443的数据包
+        df_443 = df[(df[' Source Port'] == 443) | (df[' Destination Port'] == 443)]
+        # 源端口和目的端口都不是443的数据包
+        df_other = df[(df[' Source Port'] != 443) & (df[' Destination Port'] != 443)]
+        df_443.to_csv(os.path.join(out_folder_443, file[7:-14] + '_443.csv'))
+        df_other.to_csv(os.path.join(out_folder, file[7:-14] + '_m.csv'))
 
 
 if __name__ == "__main__":

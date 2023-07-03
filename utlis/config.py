@@ -35,3 +35,4 @@ useless_feature = ["Flow ID", " Source IP", " Destination IP", " Timestamp", " B
                    " Bwd URG Flags", " RST Flag Count", " CWE Flag Count", " ECE Flag Count", "Fwd Avg Bytes/Bulk",
                    " Fwd Avg Packets/Bulk", " Fwd Avg Bulk Rate", " Bwd Avg Bytes/Bulk", " Bwd Avg Packets/Bulk",
                    "Bwd Avg Bulk Rate", " min_seg_size_forward"]
+
