@@ -44,7 +44,21 @@ python 3.7.16
 
 github好难用，我尝试用这种方法修改代理，似乎挺有效。
 
-https://zhuanlan.zhihu.com/p/636418854
+https://zhuanlan.zhihu.com/p/636418854、
+
+居然真的管用啊，家人们！！！
+
+太好了，终于不用被github的断联折磨了，而且配合personal access token作为密码
+
+终于github稍微能好用一点了
+
+https://blog.csdn.net/qq_39218530/article/details/119809170
+
+在push时需要输入token作为密码，之后应该就不用了。
+
+
+
+--------------------------------------------------------分割线------------------------------------------
 
 
 
