@@ -42,6 +42,10 @@
 python 3.7.16
 ```
 
+github好难用，我尝试用这种方法修改代理，似乎挺有效。
+
+https://zhuanlan.zhihu.com/p/636418854
+
 
 
 
